@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-const db_uri = 'mongodb://localhost:27017'
-const db = 'Exam-Manage'
+const db_uri = process.env.MONGODB_URI
 
-mongoose.connect(db_uri + '/' + db, () => {
+mongoose.connect(db_uri, () => {
     console.log("db connected")
 });
