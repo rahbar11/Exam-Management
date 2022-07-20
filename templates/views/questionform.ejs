@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Add Question</title>
+  <%- include('../partials/head')%>
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.2.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+  <%- include('../partials/navbar', {user}) %>
+
+  <%- include('../partials/sidebar')%>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Add Question</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item">Questions</li>
+          <li class="breadcrumb-item active">Add Question</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add Question</h5>
+
+              <!-- General Form Elements -->
+              <form class="needs-validation" method="post" novalidate>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Exam Name</label>
+                    <div class="col-sm-8">
+                        <select id="inputState" class="form-select" name="examid" required>
+                            <option disabled selected value>Select Exam</option>
+                            <% exams.forEach((exam, index) => { %>
+                                <option value="<%= exam._id %>"><%= exam.name %></option>
+                            <% }) %>
+                        </select>
+                        <div class="invalid-feedback">Please select the exam!</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">Question</label>
+                  <div class="col-sm-8">
+                    <input name="question" type="text" class="form-control" required>
+                    <div class="invalid-feedback">Please enter Question!</div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Option 1</label>
+                    <div class="col-sm-8">
+                        <input name="options" type="text" class="form-control" required>
+                        <div class="invalid-feedback">Please fill all four options!</div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Option 2</label>
+                    <div class="col-sm-8">
+                        <input name="options" type="text" class="form-control" required>
+                        <div class="invalid-feedback">Please fill all four options!</div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Option 3</label>
+                    <div class="col-sm-8">
+                      <input name="options" type="text" class="form-control" required>
+                      <div class="invalid-feedback">Please fill all four options!</div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Option 4</label>
+                    <div class="col-sm-8">
+                      <input name="options" type="text" class="form-control" required>
+                      <div class="invalid-feedback">Please fill all four options!</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Correct Option</label>
+                    <div class="col-sm-8">
+                        <select id="inputState" class="form-select" name="correct" required>
+                            <option disabled selected value="">Select Answer</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <div class="invalid-feedback">Please select the answer!</div>
+                    </div>
+                </div>
+
+                <% if (error) { %>
+                  <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-4 col-form-label"></label>
+                    <div class="col-sm-8">
+                      <div style="color:red;"><%= error %></div>
+                    </div>
+                  </div>
+                <% } %>
+                <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Submit Button</label>
+                  <div class="col-sm-8">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <%- include('../partials/footer')%>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <%- include('../partials/script')%>
+
+</body>
+
+</html>

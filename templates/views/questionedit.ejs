@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Edit Question</title>
+  <%- include('../partials/head')%>
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.2.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+  <%- include('../partials/navbar', {user}) %>
+
+  <%- include('../partials/sidebar')%>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Edit Question</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item">Questions</li>
+          <li class="breadcrumb-item active">Edit Question</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Edit Question</h5>
+
+              <!-- General Form Elements -->
+              <form class="needs-validation" method="post" novalidate>
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Exam Name</label>
+                    <div class="col-sm-8">
+                        <select id="inputState" class="form-select" name="examid" required>
+                            <option disabled value>Select Exam</option>
+                            <% exams.forEach((exam, index) => { %>
+                                <option value="<%= exam._id %>" 
+                                  <% if (exam._id.toString() === question.examid.toString()) { %>
+                                    <%= "selected" %>
+                                  <% } %>
+                                >
+                                    <%= exam.name %>
+                                </option>
+                            <% }) %>
+                        </select>
+                        <div class="invalid-feedback">Please select the exam!</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-4 col-form-label">Question</label>
+                  <div class="col-sm-8">
+                    <input name="question" type="text" class="form-control" value="<%= question.question %>" required>
+                    <div class="invalid-feedback">Please enter Question!</div>
+                  </div>
+                </div>
+                <% [1,2,3,4].forEach((i) => { %>
+                  <div class="row mb-3">
+                      <label for="inputText" class="col-sm-4 col-form-label">Option <%= i %></label>
+                      <div class="col-sm-8">
+                          <input name="options" type="text" class="form-control"
+                            value="<%= question.options[i-1] %>" required >
+                          <div class="invalid-feedback">Please fill all four options!</div>
+                      </div>
+                  </div>
+                <% }) %>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Correct Option</label>
+                    <div class="col-sm-8">
+                        <select id="inputState" class="form-select" name="correct" required>
+                            <option disabled value="">Select Answer</option>
+                            <% [1,2,3,4].forEach((i) => { %>
+                              <option value="<%= i %>"
+                                <% if (question.correct === i) { %>
+                                  selected
+                                <% } %>
+                              >
+                                <%= i %>
+                              </option>
+                            <% }) %>
+                        </select>
+                        <div class="invalid-feedback">Please select the answer!</div>
+                    </div>
+                </div>
+
+                <% if (error) { %>
+                  <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-4 col-form-label"></label>
+                    <div class="col-sm-8">
+                      <div style="color:red;"><%= error %></div>
+                    </div>
+                  </div>
+                <% } %>
+                <div class="row mb-3">
+                  <label class="col-sm-4 col-form-label">Submit Button</label>
+                  <div class="col-sm-8">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <%- include('../partials/footer')%>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <%- include('../partials/script')%>
+
+</body>
+
+</html>

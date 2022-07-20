@@ -1,0 +1,58 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+<ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+    <a class="nav-link " href="/">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+    </a>
+    </li><!-- End Dashboard Nav -->
+
+    <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#exams-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-menu-button-wide"></i><span>Exams</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="exams-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+        <a href="/examform">Add Exam</a>
+        </li>
+        <li>
+        <a href="/exams">Exam List</a>
+        </li>
+    </ul>
+    </li><!-- End Components Nav -->
+
+    <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#questions-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Questions</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="questions-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+        <a href="/questionform">Add Question</a>
+        </li>
+        <li>
+        <a href="/questions">Question List</a>
+        </li>
+    </ul>
+    </li><!-- End Forms Nav -->
+
+    <li class="nav-heading">Account</li>
+
+    <li class="nav-item">
+    <a class="nav-link collapsed" href="/signout">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Sign Out</span>
+    </a>
+    </li><!-- End Login Page Nav -->
+
+    <li class="nav-item">
+    <a class="nav-link collapsed" href="/signoutall">
+        <i class="bi bi-dash-circle"></i>
+        <span>Sign Out (All Devices)</span>
+    </a>
+    </li><!-- End Error 404 Page Nav -->
+</ul>
+
+</aside><!-- End Sidebar-->
