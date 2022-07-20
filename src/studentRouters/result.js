@@ -1,5 +1,4 @@
 const express = require('express');
-const Exam = require('../models/exam');
 const Question = require('../models/question')
 const auth = require('../auth/studentauth');
 

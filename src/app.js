@@ -3,7 +3,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 require('./db/conn');
-const Teacher = require('./models/teacher');
 const cors = require('cors');
 
 const indexRouter = require('./routers/index');
@@ -25,7 +24,7 @@ const questionsRouter = require('./studentRouters/questions')
 const submitRouter = require('./studentRouters/submitExam')
 const resultRouter = require('./studentRouters/result')
 
-
+const PORT = process.env.PORT || 3000
 const static_path = path.join(__dirname, "../public")
 const views_path = path.join(__dirname, "../templates/views");
 
@@ -59,6 +58,6 @@ app.use(submitRouter);
 app.use(resultRouter);
 
 
-app.listen(3001, ()=> {
-    console.log("listening on port 3001")
+app.listen(PORT, ()=> {
+    console.log(`listening on port ${PORT}`)
 })
